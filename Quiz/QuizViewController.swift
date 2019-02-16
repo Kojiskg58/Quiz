@@ -16,8 +16,6 @@ class QuizViewController: UIViewController {
     //正解数
     var correctAnswer: Int = 0
     
-    
-    
     //クイズを表示するTextView
     @IBOutlet var quizTextView: UITextView!
     
@@ -52,7 +50,6 @@ class QuizViewController: UIViewController {
         }
         
         choiceQuiz()
-        
     }
     
         
@@ -72,8 +69,8 @@ class QuizViewController: UIViewController {
     
     
     @IBAction func choiceAnswer(sender: UIButton) {
-        let tempArray = quizArray[0] as![Any]
-        if tempArray[4] as! Int == sender.tag {
+        let tmpArray = quizArray[0] as![Any]
+        if tmpArray[4] as! Int == sender.tag {
             //正解数を増やす
             correctAnswer = correctAnswer + 1
         }
@@ -81,7 +78,7 @@ class QuizViewController: UIViewController {
         quizArray.remove(at: 0)
         //解いた問題の合計数があらかじめ設定していた問題数に達したら結果画面へ
         if quizArray.count == 0 {
-//            performSegueToResult()
+            performSegueToResult()
         }else{
             choiceQuiz()
          }
